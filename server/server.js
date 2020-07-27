@@ -10,6 +10,7 @@ const signUpRouter = require('./Routers/signupRouter');
 const exploreRouter = require('./Routers/exploreRouter');
 const submitRouter = require('./Routers/submitRouter');
 const loginRouter = require('./Routers/loginRouter');
+const logoutRouter = require('./Routers/logoutRouter');
 const flash = require('express-flash');
 const initializePassport = require('./passport');
 const passport = require('passport');
@@ -37,7 +38,7 @@ app.use('/api/login', loginRouter);
 app.use('/api/signup', signUpRouter);
 app.use('/api/explore', exploreRouter);
 app.use('/api/submit', submitRouter);
-
+app.use('/api/logout', logoutRouter);
 // globoal error handler
 app.use((err, req, res, next) => {
 	const defaultErr = {

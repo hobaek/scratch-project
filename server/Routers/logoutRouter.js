@@ -4,10 +4,11 @@ const passport = require('passport');
 
 const router = express.Router();
 // when get a post request fine and compare user
-router.post('/', passport.authenticate('local'), (req, res) => {
-	console.log(req.session);
+router.get('/', function (req, res) {
+	req.logout();
+
 	req.session.save(function () {
-		res.status(200).send('logIn success');
+		res.status(200).send('logOut success');
 	});
 });
 
